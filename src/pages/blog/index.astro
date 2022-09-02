@@ -1,0 +1,21 @@
+---
+interface Frontmatter {
+  title: string;
+  description: string;
+  created: string;
+  updated: string;
+  published: boolean;
+}
+
+const posts = await Astro.glob<Frontmatter>("./*.mdx");
+---
+
+<div>
+  {posts.map((post) => (
+    <a href={post.url}>
+      <div>
+        <h1>{post.frontmatter.title}</h1>
+      </div>
+    </a>
+  ))}
+</div>

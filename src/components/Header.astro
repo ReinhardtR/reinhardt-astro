@@ -1,0 +1,41 @@
+---
+import GitHub from "./Icons/GitHub.astro";
+
+const items = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+] as const;
+
+const { pathname } = Astro.url;
+---
+
+<header class="flex justify-between items-center pb-16 pt-8">
+  <nav>
+    <ul class="flex">
+      {items.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={`hover:bg-primary-hover hover:dark:bg-primary-hover-dark md:inline-block px-3 py-2 rounded-lg transition-all ${
+              pathname == item.href
+                ? "text-secondary-content dark:text-secondary-content-dark font-semibold"
+                : "text-accent-content dark:text-accent-content-dark font-normal"
+            }`}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <div class="flex justify-center items-center">
+    <a
+      href="https://github.com/ReinhardtR"
+      target="_blank"
+      class="text-primary-content opacity-75 hover:(scale-110 opacity-100) hover:scale-110 hover:opacity-100 dark:text-primary-content-dark w-8 h-8 fill-current transition-all duration-200"
+    >
+      <GitHub />
+    </a>
+  </div>
+</header>
+
