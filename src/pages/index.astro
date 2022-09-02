@@ -1,70 +1,10 @@
 ---
+import FeaturedProjects from "@/components/FeaturedProjects.astro";
+import Hero from "@/components/Hero.astro";
 import Layout from "@/layouts/Layout.astro";
-
-type Project = {
-  icon: string;
-  name: string;
-  slug: string;
-  gradientClass: string;
-};
-
-const projects: Project[] = [
-  {
-    icon: "/assets/runeprofile.png",
-    name: "RuneProfile",
-    slug: "/runeprofile",
-    gradientClass: "runeprofile-gradient",
-  },
-  {
-    icon: "/assets/runeprofile.png",
-    name: "RuneProfile",
-    slug: "/runeprofile",
-    gradientClass: "runeprofile-gradient",
-  },
-  {
-    icon: "/assets/runeprofile.png",
-    name: "RuneProfile",
-    slug: "/runeprofile",
-    gradientClass: "runeprofile-gradient",
-  },
-];
 ---
+
 <Layout title="Home">
-  <div class="flex flex-col">
-    <h1 class="font-bold text-5xl tracking-tight mb-1">
-      Reinhardt Rijna
-    </h1>
-    <h2 class="text-secondary-content dark:text-secondary-content-dark mb-4">
-      Software Engineering student at VIA University College
-    </h2>
-    <p class="text-accent-content dark:text-accent-content-dark mb-16 max-w-lg">
-      Building full stack apps with an awesome UX & DX experience, with the
-      power of the best tools in the React & TypeScript ecosystem.
-    </p>
-  </div>
-  <div class="flex flex-col">
-    <h1 class="text-4xl font-bold tracking-tight">Featured Projects</h1>
-    <div class="flex justify-center items-center space-x-8 pt-6">
-      {projects.map((project) => (
-         <a
-      href={`/projects/${project.slug}`}
-      class={`flex flex-col justify-between rounded-xl flex-1 h-72 p-1.5 shadow-md hover:scale-105 transition-all duration-300 ${project.gradientClass}`}
-    >
-      <div class="flex flex-col space-y-2 bg-primary dark:bg-primary-dark w-full h-full rounded-lg p-4">
-        <h4 class="text-xl font-bold tracking-wide text-center">
-          {project.name}
-        </h4>
-        <img
-          src={project.icon}
-          alt="project icon"
-          class="w-24 h-24 mx-auto"
-        />
-        <p class="text-sm text-accent-content dark:text-accent-content py-4">
-          A system to display your RuneScape account on a website.
-        </p>
-      </div>
-    </a>
-      ))}
-    </div>
-  </div>
+  <Hero />
+  <FeaturedProjects />
 </Layout>

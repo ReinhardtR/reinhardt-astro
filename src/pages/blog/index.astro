@@ -11,11 +11,13 @@ const posts = await Astro.glob<Frontmatter>("./*.mdx");
 ---
 
 <div>
-  {posts.map((post) => (
-    <a href={post.url}>
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-      </div>
-    </a>
-  ))}
+  {
+    posts.map((post) => (
+      <a href={post.url}>
+        <div>
+          <h1>{post.frontmatter.title}</h1>
+        </div>
+      </a>
+    ))
+  }
 </div>

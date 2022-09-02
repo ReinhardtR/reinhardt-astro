@@ -11,6 +11,6 @@ import vercel from "@astrojs/vercel/static";
 export default defineConfig({
   output: "static",
   adapter: vercel(),
-  site: "https://reinhardt.vercel.app",
+  site: "https://reinhardt-astro.vercel.app",
   integrations: [mdx(), prefetch(), sitemap(), tailwind(), image(), solidJs()],
 });

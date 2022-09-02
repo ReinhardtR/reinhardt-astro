@@ -1,9 +1,9 @@
 ---
-import Header from '@/components/Header.astro';
-import '@fontsource/inter';
+import Header from "@/components/Header.astro";
+import "@fontsource/inter";
 
 export interface Props {
-	title?: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
@@ -11,19 +11,21 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title ? title : "Reinhardt"}</title>
-	</head>
-	<body class="bg-primary dark:bg-primary-dark text-primary-content dark:text-primary-content-dark">
-		<div class="max-w-2xl mx-auto px-4 pb-16">
-			<Header />
-			<main class="flex flex-col justify-center px-2">
-				<slot />
-			</main>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? title : "Reinhardt"}</title>
+  </head>
+  <body
+    class="bg-primary dark:bg-primary-dark text-primary-content dark:text-primary-content-dark"
+  >
+    <div class="max-w-2xl mx-auto px-4 pb-16">
+      <Header />
+      <main class="flex flex-col justify-center px-2">
+        <slot />
+      </main>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,59 @@
+---
+type Project = {
+  icon: string;
+  name: string;
+  slug: string;
+  gradientClass: string;
+};
+
+const projects: Project[] = [
+  {
+    icon: "/assets/runeprofile.png",
+    name: "RuneProfile",
+    slug: "/runeprofile",
+    gradientClass: "runeprofile-gradient",
+  },
+  {
+    icon: "/assets/runeprofile.png",
+    name: "RuneProfile",
+    slug: "/runeprofile",
+    gradientClass: "runeprofile-gradient",
+  },
+  {
+    icon: "/assets/runeprofile.png",
+    name: "RuneProfile",
+    slug: "/runeprofile",
+    gradientClass: "runeprofile-gradient",
+  },
+];
+---
+
+<div class="flex flex-col">
+  <h1 class="text-4xl font-bold tracking-tight drop-shadow">
+    Featured Projects
+  </h1>
+  <div class="flex justify-center items-center space-x-8 pt-6">
+    {
+      projects.map((project) => (
+        <a
+          href={`/projects/${project.slug}`}
+          class={`flex flex-col justify-between rounded-xl flex-1 h-72 p-1.5 shadow-md hover:scale-105 transition-all duration-300 ${project.gradientClass}`}
+        >
+          <div class="flex flex-col space-y-2 bg-primary dark:bg-primary-dark w-full h-full rounded-lg p-4">
+            <h4 class="text-xl font-bold tracking-wide text-center drop-shadow-sm">
+              {project.name}
+            </h4>
+            <img
+              src={project.icon}
+              alt="project icon"
+              class="w-24 h-24 mx-auto"
+            />
+            <p class="text-sm text-accent-content dark:text-accent-content py-4">
+              A system to display your RuneScape account on a website.
+            </p>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</div>
