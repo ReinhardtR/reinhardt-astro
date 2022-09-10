@@ -1,23 +1,41 @@
 ---
-interface Frontmatter {
+import Layout from "@/layouts/Layout.astro";
+
+export interface Frontmatter {
   title: string;
   description: string;
   created: string;
   updated: string;
-  published: boolean;
+  draft: boolean;
+  minutesRead: string;
 }
 
-const posts = await Astro.glob<Frontmatter>("./*.mdx");
+const posts = await Astro.glob<Frontmatter>("./*.md");
 ---
 
-<div>
-  {
-    posts.map((post) => (
-      <a href={post.url}>
-        <div>
-          <h1>{post.frontmatter.title}</h1>
-        </div>
-      </a>
-    ))
-  }
-</div>
+<Layout title="Blog">
+  <div>
+    <h1 class="text-4xl font-bold mb-4">Posts</h1>
+    <ul>
+      {
+        posts.map((post) => (
+          <a href={post.url}>
+            <div class="bg-black/5 dark:bg-black/20 p-4 rounded-lg hover:scale-102 transition-all duration-300 hover:cursor-pointer flex flex-col space-y-1">
+              <h2 class="font-bold text-2xl">{post.frontmatter.title}</h2>
+
+              <p class="text-accent-content text-sm dark:text-accent-content-dark">
+                {post.frontmatter.created} -{" "}
+                {post.frontmatter.updated && <>{post.frontmatter.updated} -</>}
+                {post.frontmatter.minutesRead}
+              </p>
+
+              <p class="text-secondary-content dark:text-secondary-content-dark">
+                {post.frontmatter.description}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

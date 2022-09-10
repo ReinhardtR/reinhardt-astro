@@ -1,5 +1,5 @@
 ---
-import GitHub from "./Icons/GitHub.astro";
+import ThemeSwitch from "./ThemeSwitch";
 
 const items = [
   { label: "Home", href: "/" },
@@ -31,12 +31,13 @@ const { pathname } = Astro.url;
     </ul>
   </nav>
   <div class="flex justify-center items-center">
-    <a
+    <ThemeSwitch client:load />
+    <!-- <a
       href="https://github.com/ReinhardtR"
       target="_blank"
       class="text-primary-content opacity-50 hover:(scale-110 opacity-100) hover:scale-110 hover:opacity-100 dark:text-primary-content-dark w-8 h-8 fill-current fill-primary-content dark:fill-primary-content-dark transition-all duration-200"
     >
       <GitHub />
-    </a>
+    </a> -->
   </div>
 </header>

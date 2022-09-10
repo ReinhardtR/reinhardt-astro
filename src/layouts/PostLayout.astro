@@ -1,0 +1,29 @@
+---
+import "@/styles/blogpost.css";
+import "@fontsource/jetbrains-mono";
+import Layout from "./Layout.astro";
+import type { Frontmatter } from "@/pages/blog/index.astro";
+
+const frontmatter = Astro.props.frontmatter as Frontmatter;
+---
+
+<Layout title={frontmatter.title}>
+  <div class="flex flex-col space-y-2 mb-8">
+    <h1 class="text-5xl font-bold">{frontmatter.title}</h1>
+    <p class="text-accent-content text-sm dark:text-accent-content-dark">
+      {frontmatter.created} -{" "}
+      {frontmatter.updated && <>{frontmatter.updated} -</>}
+      {frontmatter.minutesRead}
+    </p>
+    <p>{frontmatter.description}</p>
+  </div>
+
+  <div
+    class="w-full h-[2px] rounded-full bg-secondary-content dark:bg-secondary-content-dark mb-8"
+  >
+  </div>
+
+  <article class="prose prose-lg dark:prose-invert">
+    <slot />
+  </article>
+</Layout>

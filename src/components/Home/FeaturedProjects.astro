@@ -1,0 +1,83 @@
+---
+type Project = {
+  icon: string;
+  name: string;
+  slug: string;
+  gradientClass: string;
+};
+
+const projects: Project[] = [
+  {
+    icon: "/assets/runeprofile.png",
+    name: "RuneProfile",
+    slug: "/runeprofile",
+    gradientClass: "runeprofile-gradient",
+  },
+  {
+    icon: "/assets/runeprofile.png",
+    name: "RuneProfile",
+    slug: "/runeprofile",
+    gradientClass: "runeprofile-gradient-2",
+  },
+  {
+    icon: "/assets/runeprofile.png",
+    name: "RuneProfile",
+    slug: "/runeprofile",
+    gradientClass: "runeprofile-gradient-3",
+  },
+];
+---
+
+<div class="flex flex-col">
+  <h1 class="text-4xl font-bold tracking-tight drop-shadow">Projects</h1>
+  <div class="flex flex-col justify-center space-y-8 pt-6">
+    {
+      projects.map((project) => (
+        <a
+          href={`/projects/${project.slug}`}
+          class={`flex flex-col justify-between rounded-xl flex-1 p-1 shadow-md hover:scale-102 transition-all duration-300 ${project.gradientClass}`}
+        >
+          <div class="flex bg-primary dark:bg-primary-dark opacity-[95%] h-40 rounded-lg items-center px-8 space-x-8">
+            <img src={project.icon} alt="project icon" class="w-24 h-24" />
+            <div>
+              <h3 class="text-xl font-bold tracking-wide drop-shadow-sm">
+                {project.name}
+              </h3>
+              <p class="text-sm text-secondary-content dark:text-secondary-content-dark py-3">
+                A system to display your RuneScape account on a website.
+              </p>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .runeprofile-gradient {
+    background: linear-gradient(
+      to right bottom,
+      rgb(134, 239, 172),
+      rgb(59, 130, 246),
+      rgb(147, 51, 234)
+    );
+  }
+
+  .runeprofile-gradient-2 {
+    background: linear-gradient(
+      to top left,
+      rgb(236, 72, 153),
+      rgb(239, 68, 68),
+      rgb(234, 179, 8)
+    );
+  }
+
+  .runeprofile-gradient-3 {
+    background: linear-gradient(
+      to right bottom,
+      rgb(16, 185, 129),
+      rgb(101, 163, 13)
+    );
+  }
+</style>
