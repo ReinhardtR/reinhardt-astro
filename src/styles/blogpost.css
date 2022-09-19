@@ -56,9 +56,11 @@
 }
 
 .prose code {
+  @apply text-secondary-content dark:text-secondary-content-dark px-1 py-0.5 rounded-lg bg-black/10 dark:bg-white/5 before:hidden after:hidden;
 }
 
 .prose pre code {
+  @apply bg-transparent;
 }
 
 .prose > :first-child {
