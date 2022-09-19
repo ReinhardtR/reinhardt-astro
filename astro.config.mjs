@@ -7,10 +7,6 @@ import image from "@astrojs/image";
 import vercel from "@astrojs/vercel/static";
 
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
-import rehypeCodeTitles from "rehype-code-titles";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrismPlus from "rehype-prism-plus";
-import rehypeSlug from "rehype-slug";
 
 import preact from "@astrojs/preact";
 
