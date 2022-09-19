@@ -5,10 +5,13 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import vercel from "@astrojs/vercel/static";
+import preact from "@astrojs/preact";
 
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
-
-import preact from "@astrojs/preact";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypePrsimPlus from "rehype-prism-plus";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,11 +33,11 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     rehypePlugins: [
-      "rehype-code-titles",
-      "rehype-prism-plus",
-      "rehype-slug",
+      rehypeCodeTitles,
+      rehypePrsimPlus,
+      rehypeSlug,
       [
-        "rehype-autolink-headings",
+        rehypeAutolinkHeadings,
         {
           properties: {
             class: "anchor-link",

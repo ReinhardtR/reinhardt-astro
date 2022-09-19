@@ -4,7 +4,7 @@ title: "A Great Title"
 description: "A description of the content in this post."
 created: "31-08-2022"
 updated: null
-draft: true
+draft: false
 ---
 
 Hey there! Today we'll be building an application with the [T3 stack](https://init.tips/). We're going to build a Guestbook inspired by [Lee Robinson's Guestbook](https://leerob.io/guestbook/). Let's get right into it!

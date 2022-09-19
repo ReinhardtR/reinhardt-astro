@@ -10,6 +10,7 @@ export interface Frontmatter {
   minutesRead: string;
 }
 
+// Shouldn't include drafts
 const posts = await Astro.glob<Frontmatter>("./*.md");
 ---
 
